@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaEnvelope, FaLock, FaLockOpen } from 'react-icons/fa'; 
 import styles from './index.module.css'; 
 import logo from '@/assets/Icon.png'
@@ -166,9 +167,14 @@ export default function SignUp() {
             className={isFormValid() ? styles.button : styles.buttonDisabled}
             disabled={!isFormValid()} 
           >
-            Entrar
+            Criar Conta
           </button>
         </form>
+        <div className={styles.signinLink}>
+          <p>
+            Já tem conta? <Link to="/SignIn" className={styles.signin}>Entrar</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

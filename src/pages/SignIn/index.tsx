@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaEnvelope, FaLock } from 'react-icons/fa'; 
 import styles from './index.module.css'; 
 import logo from '@/assets/Icon.png';
@@ -140,7 +141,7 @@ export default function Login() {
 
         <div className={styles.registerLink}>
           <p>
-            Não tem conta? <a href="/registro">Inscrever-se</a>
+            Não tem conta? <Link to="/SignUp" className={styles.signup}>Inscrever-se</Link>
           </p>
         </div>
       </div>

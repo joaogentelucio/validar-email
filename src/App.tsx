@@ -1,9 +1,16 @@
-import React from 'react';
-import Login from './pages/SignIn'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import SignIn from '@/pages/SignIn';
+import SignUp from '@/pages/SignUp';
 
 const App: React.FC = () => {
   return (
-    <Login />
+    <Router>
+    <Routes>
+      <Route path="/" element={<Navigate to="/SignIn" />} />
+      <Route path="/SignIn" element={<SignIn />} />
+      <Route path="/SignUp" element={<SignUp />} />
+    </Routes>
+  </Router>
   );
 };
 

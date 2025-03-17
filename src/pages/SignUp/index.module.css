@@ -96,3 +96,18 @@
     font-size: 14px;
     margin-top: 10px;
 }
+
+.signinLink p {
+    font-size: 0.8em;
+}
+
+.signinLink .signin {
+    color: #007bff;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+  
+.signinLink .signin:hover {
+    text-decoration: underline;
+}
+  

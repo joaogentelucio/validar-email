@@ -101,7 +101,7 @@
     font-size: 0.8em;
 }
 
-.registerLink a {
+.registerLink .signup {
     color: #007bff;
     font-size: 0.8em;
     text-decoration: none;
