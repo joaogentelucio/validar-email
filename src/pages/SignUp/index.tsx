@@ -3,7 +3,7 @@ import { FaEnvelope, FaLock, FaLockOpen } from 'react-icons/fa';
 import styles from './index.module.css'; 
 import logo from '@/assets/Icon.png'
 
-export default function Login() {
+export default function SignUp() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
