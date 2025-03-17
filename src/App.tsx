@@ -4,7 +4,7 @@ import Login from './pages/SignIn'
 const App: React.FC = () => {
   return (
     <Login />
-  )
-}
+  );
+};
 
 export default App;
