@@ -1,8 +1,10 @@
+import React from 'react';
 import Login from './pages/SignIn'
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <Login />
   )
 }
 
+export default App;
