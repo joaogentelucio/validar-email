@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaLock, FaLockOpen } from 'react-icons/fa'; 
 import styles from './index.module.css'; 
+import logo from '@/assets/Icon.png'
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -38,7 +39,7 @@ export default function Login() {
     return isEmailValid && isPasswordValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -59,9 +60,29 @@ export default function Login() {
       return;
     }
 
-    console.log('Email:', email);
-    console.log('Password:', password);
+    try {
+      const response = await fetch('https://sua-api.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
+      if (!response.ok) {
+        throw new Error('Erro ao fazer login');
+      }
+
+      const data = await response.json();
+      console.log('Login bem-sucedido:', data);
+
+      // localStorage.setItem('token', data.token);
+      // history.push('/dashboard');
+
+    } catch (error) {
+      setError('Erro ao fazer login. Por favor, tente novamente.');
+      console.error('Erro:', error);
+    }
     setEmail('');
     setPassword('');
     setError('');
@@ -72,7 +93,11 @@ export default function Login() {
   return (
     <div className={styles.telaLogin}>
       <div className={styles.container}>
-        <h2>Login</h2>
+        <img
+          src={logo}
+          alt="GEXXZE"
+          className={styles.logo}
+        />
         {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
